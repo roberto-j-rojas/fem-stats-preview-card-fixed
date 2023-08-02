@@ -1,0 +1,165 @@
+@use 'mixins' as *;
+@use 'base';
+@use '_abstracts';
+
+// Breakpoints
+$bp-1: 60em;
+
+/*
+
+
+
+###############
+UTILITY CLASSES
+###############
+*/
+
+.flex{
+    display: flex;
+}
+
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.primary-heading{
+    font-size: var(--fs-500);
+    font-weight: var(--fw-bold);
+    color: var(--clr-neutral-100);
+
+    @include width-above($bp-1){
+        font-size: var(--fs-600);
+    }
+}
+/*
+
+
+
+##############
+GENERAL STYLES
+##############
+*/
+body{
+    font-family: var(--ff-base);
+    font-size: var(--fs-400);
+    font-weight: var(--fw-regular);
+    color: var(--clr-neutral-200);
+    line-height: 1.5;
+}
+main{
+    background-color: var(--clr-primary-700);
+    min-height: 100vh;
+    min-height: 100svh;
+}
+/*
+
+
+
+#############
+LAYOUT STYLES
+#############
+*/
+
+.card{
+    background-color: var(--clr-primary-400);
+    max-width: 37.5rem;
+    flex-direction: column;
+    border-radius: var(--size-100);
+    overflow: hidden;
+    margin: 5.5rem var(--size-550);
+
+    @include width-above($bp-1){
+        flex-direction: row-reverse;
+        margin-block: var(--size-200);
+        max-width: 69.375rem;
+        min-height: 27.875rem;
+    }
+
+    &__img-container{
+        width: 100%;
+        height: 15rem;
+        background-size: cover;
+        position: relative;
+        background-color: var(--clr-secondary-400);        
+        
+
+        @include width-above($bp-1){
+            width: 69.375rem;
+            height: auto;
+            max-width: 33.75rem;
+        }
+
+        img{
+            width: 100%;
+            height: 100%;
+            mix-blend-mode: multiply;
+            opacity: 0.8;
+        }
+    }
+
+
+    &__content{
+        padding: var(--size-700);
+        padding-bottom: var(--size-550);
+        text-align: center;
+
+        @include width-above($bp-1){
+            padding: 4.375rem;
+            padding-bottom: 4rem;
+            text-align: left;
+        }
+    }
+
+    &__title{
+        margin-bottom: var(--size-400);
+
+        span{
+            color: var(--clr-secondary-400);
+        }
+    }
+    
+    &__description{
+        margin-bottom: var(--size-750);
+        
+        @include width-above($bp-1){
+            max-width: 21.875rem;
+        }
+    }
+
+
+    &__stats{
+        flex-direction: column;
+        
+        @include width-above($bp-1){
+            flex-direction: row;
+            justify-content: space-between;
+            max-width: 21.875rem;
+        }
+
+        li{
+            margin-block: var(--size-200);
+
+            @include width-above($bp-1){
+                margin: 0;
+            }
+        }
+    }
+}
+
+.stats{
+    &__stat{
+        display: block;
+        color: var(--clr-neutral-100);
+        margin-bottom: var(--size-100);
+        font-size: var(--fs-500);
+        font-weight: var(--fw-bold);    
+    }
+
+    &__label{
+        text-transform: uppercase;
+        font-family: var(--ff-secondary);
+        color: var(--clr-neutral-300);    
+    }
+}

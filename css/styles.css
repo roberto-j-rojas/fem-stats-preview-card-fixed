@@ -1,0 +1,281 @@
+/*
+#############
+    RESET
+#############
+*/
+/* Global defaults */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+  outline-color: transparent;
+  color: inherit;
+  font: inherit;
+}
+
+/* Core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Media defaults */
+img, picture, video, iframe, figure {
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* Anchor defaults*/
+a {
+  display: block;
+}
+
+p a {
+  display: inline;
+}
+
+/* List elements defaults */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Tables defaults */
+table, tr, td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Font Defaults */
+h1, h2, h3, h4, h5, h6, p, span, strong, blockquote, i, b, u, em {
+  font-size: 1em;
+}
+
+/* Reduced Motion Settings */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/*
+
+
+
+#################
+CUSTOM PROPERTIES
+#################
+*/
+:root {
+  /*
+
+  COLOR VARIABLES 
+  */
+  /* primary */
+  --clr-primary-400: hsl(244, 38%, 16%);
+  --clr-primary-700: hsl(233, 47%, 7%);
+  /* secondary */
+  --clr-secondary-400: hsl(277, 64%, 61%);
+  /* neutral */
+  --clr-neutral-100: hsl(0, 0%, 100%);
+  --clr-neutral-200: hsla(0, 0%, 100%, 0.75);
+  --clr-neutral-300: hsla(0, 0%, 100%, 0.6);
+  /*
+
+  FONT VARIABLES 
+  */
+  /* Font families */
+  --ff-base: "Inter", sans-serif;
+  --ff-secondary: "Lexend Deca", sans-serif;
+  /* Font sizes */
+  --fs-400: 0.9375rem; /* - 15px */
+  --fs-500: 1.5rem; /* ---- 24px */
+  --fs-600: 2.25rem; /* --- 36px */
+  /* Font weights */
+  --fw-regular: 400;
+  --fw-bold: 700;
+  /* 
+
+  SIZE VARIABLES 
+  */
+  --size-100: 0.625rem; /* -- 10px */
+  --size-200: 0.75rem; /* --- 12px */
+  --size-300: 0.875rem; /* -- 14px */
+  --size-400: 1rem; /* ------ 16px */
+  --size-450: 1.125rem; /* -- 18px */
+  --size-500: 1.25rem; /* --- 20px */
+  --size-550: 1.5rem; /* ---- 24px */
+  --size-600: 1.75rem; /* --- 28px */
+  --size-650: 2rem; /* ------ 32px */
+  --size-700: 2.25rem; /* --- 36px */
+  --size-750: 2.5rem; /* ---- 40px */
+  --size-800: 2.75rem; /* --- 44px */
+  --size-850: 3rem; /* ------ 48px */
+  --size-900: 3.25rem; /* --- 52px */
+  --size-950: 3.375rem; /* -- 54px */
+}
+
+/*
+
+
+
+###############
+UTILITY CLASSES
+###############
+*/
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.primary-heading {
+  font-size: var(--fs-500);
+  font-weight: var(--fw-bold);
+  color: var(--clr-neutral-100);
+}
+@media screen and (min-width: 60em) {
+  .primary-heading {
+    font-size: var(--fs-600);
+  }
+}
+
+/*
+
+
+
+##############
+GENERAL STYLES
+##############
+*/
+body {
+  font-family: var(--ff-base);
+  font-size: var(--fs-400);
+  font-weight: var(--fw-regular);
+  color: var(--clr-neutral-200);
+  line-height: 1.5;
+}
+
+main {
+  background-color: var(--clr-primary-700);
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+/*
+
+
+
+#############
+LAYOUT STYLES
+#############
+*/
+.card {
+  background-color: var(--clr-primary-400);
+  max-width: 37.5rem;
+  flex-direction: column;
+  border-radius: var(--size-100);
+  overflow: hidden;
+  margin: 5.5rem var(--size-550);
+}
+@media screen and (min-width: 60em) {
+  .card {
+    flex-direction: row-reverse;
+    margin-block: var(--size-200);
+    max-width: 69.375rem;
+    min-height: 27.875rem;
+  }
+}
+.card__img-container {
+  width: 100%;
+  height: 15rem;
+  background-size: cover;
+  position: relative;
+  background-color: var(--clr-secondary-400);
+}
+@media screen and (min-width: 60em) {
+  .card__img-container {
+    width: 69.375rem;
+    height: auto;
+    max-width: 33.75rem;
+  }
+}
+.card__img-container img {
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: multiply;
+  opacity: 0.8;
+}
+.card__content {
+  padding: var(--size-700);
+  padding-bottom: var(--size-550);
+  text-align: center;
+}
+@media screen and (min-width: 60em) {
+  .card__content {
+    padding: 4.375rem;
+    padding-bottom: 4rem;
+    text-align: left;
+  }
+}
+.card__title {
+  margin-bottom: var(--size-400);
+}
+.card__title span {
+  color: var(--clr-secondary-400);
+}
+.card__description {
+  margin-bottom: var(--size-750);
+}
+@media screen and (min-width: 60em) {
+  .card__description {
+    max-width: 21.875rem;
+  }
+}
+.card__stats {
+  flex-direction: column;
+}
+@media screen and (min-width: 60em) {
+  .card__stats {
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 21.875rem;
+  }
+}
+.card__stats li {
+  margin-block: var(--size-200);
+}
+@media screen and (min-width: 60em) {
+  .card__stats li {
+    margin: 0;
+  }
+}
+
+.stats__stat {
+  display: block;
+  color: var(--clr-neutral-100);
+  margin-bottom: var(--size-100);
+  font-size: var(--fs-500);
+  font-weight: var(--fw-bold);
+}
+.stats__label {
+  text-transform: uppercase;
+  font-family: var(--ff-secondary);
+  color: var(--clr-neutral-300);
+}
+
+/*# sourceMappingURL=styles.css.map */
